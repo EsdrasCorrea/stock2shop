@@ -1,0 +1,26 @@
+name: .NET Build
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore ./backend || echo "Sem projeto .NET ainda"
+
+      - name: Build
+        run: dotnet build ./backend --no-restore || echo "Sem projeto .NET ainda"

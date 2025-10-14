@@ -31,8 +31,8 @@ O objetivo é servir como um **curso/desafio pessoal**, cobrindo backend, fronte
 ---
 
 ## 🛠 Tecnologias
-- **Back-end:** .NET Core (C#), Entity Framework Core  
-- **Front-end:** Angular, Angular Material  
+- **Back-end:** .NET Core 8 (C#), Entity Framework Core  
+- **Front-end:** Angular 17, Angular Material  
 - **Banco de Dados:** PostgreSQL (Supabase/Neon)  
 - **CI/CD:** GitHub Actions  
 - **Deploy:** Vercel/Netlify (frontend), Render/Fly.io (backend), Supabase (DB)  

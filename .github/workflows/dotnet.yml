@@ -3,8 +3,10 @@ name: .NET Build
 on:
   push:
     branches: [ main, develop ]
+    paths: [ "backend/**", ".github/workflows/dotnet.yml" ]
   pull_request:
     branches: [ main, develop ]
+    paths: [ "backend/**", ".github/workflows/dotnet.yml" ]
 
 jobs:
   build:
@@ -12,15 +14,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
       - name: Restore dependencies
-        run: dotnet restore ./backend || echo "Sem projeto .NET ainda"
+        run: dotnet restore ./backend || echo "Nenhum projeto .NET encontrado ainda"
 
       - name: Build
-        run: dotnet build ./backend --no-restore || echo "Sem projeto .NET ainda"
+        run: dotnet build ./backend --no-restore || echo "Nenhum projeto .NET encontrado ainda"
